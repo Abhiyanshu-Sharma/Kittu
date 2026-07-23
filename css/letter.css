@@ -1,0 +1,223 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+
+    --bg:#e9ddc8;
+    --text:#4b3d2a;
+    --accent:#5b3a22;
+
+}
+
+body{
+
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:5rem 1.5rem;
+
+    background:var(--bg);
+
+    color:var(--text);
+
+    font-family:"Cormorant Garamond", serif;
+
+}
+
+.letter-section{
+
+    width:min(95%,900px);
+
+}
+
+.letter{
+
+    background-image:url("../assets/images/letter-background.jpg");
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:100% 100%;
+
+    max-width:850px;
+    min-height:1000px;
+
+    margin:auto;
+
+    padding:120px 90px;
+
+    position:relative;
+
+    box-shadow:0 25px 60px rgba(0,0,0,.25);
+
+}
+
+.letter-header{
+
+    margin-bottom:2rem;
+
+}
+
+.letter-header h3{
+
+    font-family:"Great Vibes", cursive;
+
+    font-size:2.8rem;
+
+    font-weight:400;
+
+    color:var(--accent);
+
+}
+
+time{
+
+    display:block;
+
+    margin-top:.5rem;
+
+    font-size:1rem;
+
+    color:#6d5a46;
+
+}
+
+hr{
+
+    border:none;
+
+    border-top:1px solid rgba(91,58,34,.25);
+
+    margin:2rem 0;
+
+}
+
+.letter h2{
+
+    font-family:"Great Vibes", cursive;
+
+    font-size:3.4rem;
+
+    font-weight:400;
+
+    color:var(--accent);
+
+    margin-bottom:2.5rem;
+
+}
+
+.letter p{
+
+    font-family:"Special Elite", monospace;
+
+    font-size:1.25rem;
+
+    line-height:2.2;
+
+    margin-bottom:1.3rem;
+
+    color:var(--text);
+
+}
+
+.confession{
+
+    font-size:1.45rem !important;
+
+    color:var(--accent);
+
+    margin-top:2.5rem;
+
+}
+
+footer{
+
+    margin-top:5rem;
+
+    color:var(--accent);
+
+    font-family:"Great Vibes", cursive;
+
+    font-size:2rem;
+
+}
+
+footer p{
+
+    margin:0;
+
+}
+
+button{
+
+    display:block;
+
+    margin:3rem auto 0;
+
+    padding:1rem 3rem;
+
+    border:none;
+
+    border-radius:999px;
+
+    background:var(--accent);
+
+    color:white;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+}
+
+button:hover{
+
+    transform:translateY(-4px);
+
+    background:#3f2818;
+
+}
+
+button:active{
+
+    transform:translateY(0);
+
+}
+
+@media(max-width:768px){
+
+    .letter{
+
+        padding:90px 50px;
+
+    }
+
+    .letter h2{
+
+        font-size:2.7rem;
+
+    }
+
+    .letter-header h3{
+
+        font-size:2.3rem;
+
+    }
+
+    .letter p{
+
+        font-size:1rem;
+
+    }
+
+}
