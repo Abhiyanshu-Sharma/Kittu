@@ -1,0 +1,455 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background: #fff8f1;
+    --text: #3b3030;
+
+    --cooler-main: #f4f1e8;
+    --cooler-dark: #d8d3c4;
+    --cooler-shadow: #b9b3a5;
+
+    --water: #73cfe8;
+    --water-dark: #42afd0;
+
+    --progress-bg: #e9e2dc;
+    --accent: #ff8fab;
+}
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 2rem;
+
+    background: var(--background);
+
+    color: var(--text);
+
+    font-family: "Poppins", sans-serif;
+}
+
+.game {
+    width: min(100%, 600px);
+
+    text-align: center;
+}
+
+h1 {
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 1rem;
+
+    opacity: 0.7;
+
+    margin-bottom: 2.5rem;
+}
+
+
+/* =========================
+   GAME AREA
+========================= */
+
+.game-area {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    min-height: 350px;
+}
+
+
+/* =========================
+   COOLER
+========================= */
+
+.cooler {
+    position: relative;
+
+    width: 230px;
+    height: 270px;
+
+    cursor: pointer;
+
+    user-select: none;
+    -webkit-user-select: none;
+
+    touch-action: none;
+
+    transition: transform 0.15s ease;
+}
+
+/*
+    This will later be controlled
+    by JavaScript while filling.
+*/
+
+.cooler:active {
+    transform: scale(0.98);
+}
+
+
+/* Handle */
+
+.cooler-handle {
+    position: absolute;
+
+    top: 5px;
+    left: 50%;
+
+    width: 115px;
+    height: 55px;
+
+    transform: translateX(-50%);
+
+    border: 12px solid var(--cooler-dark);
+
+    border-bottom: none;
+
+    border-radius: 60px 60px 0 0;
+
+    z-index: 1;
+}
+
+
+/* Lid */
+
+.cooler-lid {
+    position: absolute;
+
+    top: 35px;
+    left: 15px;
+
+    width: 200px;
+    height: 38px;
+
+    background: var(--cooler-main);
+
+    border: 4px solid var(--cooler-shadow);
+
+    border-radius: 15px 15px 8px 8px;
+
+    z-index: 3;
+
+    box-shadow:
+        0 5px 0 var(--cooler-shadow);
+}
+
+.lid-line {
+    position: absolute;
+
+    top: 10px;
+    left: 25px;
+
+    width: 140px;
+    height: 6px;
+
+    background: var(--cooler-dark);
+
+    border-radius: 10px;
+}
+
+
+/* Main body */
+
+.cooler-body {
+    position: absolute;
+
+    left: 25px;
+    top: 68px;
+
+    width: 180px;
+    height: 175px;
+
+    overflow: hidden;
+
+    background: var(--cooler-main);
+
+    border: 5px solid var(--cooler-shadow);
+
+    border-radius: 12px 12px 20px 20px;
+
+    box-shadow:
+        0 10px 0 var(--cooler-shadow),
+        0 18px 25px rgba(70, 55, 55, 0.15);
+}
+
+
+/* =========================
+   WATER
+========================= */
+
+.water {
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 0%;
+
+    background: linear-gradient(
+        to bottom,
+        var(--water),
+        var(--water-dark)
+    );
+
+    z-index: 1;
+
+    transition: height 0.08s linear;
+}
+
+
+/* Water surface */
+
+.water-wave {
+    position: absolute;
+
+    top: -8px;
+    left: -10%;
+
+    width: 120%;
+    height: 18px;
+
+    background: var(--water);
+
+    border-radius: 50%;
+
+    animation: wave 2s ease-in-out infinite;
+}
+
+@keyframes wave {
+    0% {
+        transform: translateX(-2%);
+    }
+
+    50% {
+        transform: translateX(2%);
+    }
+
+    100% {
+        transform: translateX(-2%);
+    }
+}
+
+
+/* =========================
+   COOLER DETAILS
+========================= */
+
+.cooler-label {
+    position: absolute;
+
+    left: 50%;
+    top: 45px;
+
+    transform: translateX(-50%);
+
+    z-index: 2;
+
+    padding: 6px 12px;
+
+    border-radius: 8px;
+
+    background: rgba(255, 255, 255, 0.65);
+
+    font-size: 0.75rem;
+    font-weight: 600;
+
+    letter-spacing: 2px;
+}
+
+.cooler-grill {
+    position: absolute;
+
+    bottom: 22px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+
+    gap: 7px;
+
+    z-index: 2;
+}
+
+.cooler-grill span {
+    width: 7px;
+    height: 35px;
+
+    border-radius: 10px;
+
+    background: var(--cooler-dark);
+}
+
+
+/* =========================
+   FEET
+========================= */
+
+.cooler-feet {
+    position: absolute;
+
+    bottom: 0;
+
+    left: 50%;
+
+    width: 175px;
+
+    transform: translateX(-50%);
+
+    display: flex;
+
+    justify-content: space-between;
+}
+
+.cooler-feet div {
+    width: 25px;
+    height: 18px;
+
+    background: var(--cooler-shadow);
+
+    border-radius: 5px;
+}
+
+
+/* =========================
+   INSTRUCTION
+========================= */
+
+.instruction {
+    margin-top: 1rem;
+
+    font-size: 1rem;
+
+    font-weight: 500;
+
+    opacity: 0.75;
+}
+
+
+/* =========================
+   PROGRESS
+========================= */
+
+.progress-container {
+    width: min(100%, 350px);
+
+    margin: 1.5rem auto 0;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 0.8rem;
+}
+
+.progress-bar {
+    flex: 1;
+
+    height: 12px;
+
+    overflow: hidden;
+
+    background: var(--progress-bg);
+
+    border-radius: 20px;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+
+    background: var(--water);
+
+    border-radius: inherit;
+
+    transition: width 0.08s linear;
+}
+
+#progress-text {
+    width: 45px;
+
+    font-size: 0.85rem;
+
+    font-weight: 600;
+}
+
+
+/* =========================
+   COMPLETION
+========================= */
+
+.completion-message {
+    margin-top: 1.5rem;
+
+    font-size: 1.2rem;
+
+    font-weight: 600;
+
+    animation: pop 0.4s ease;
+}
+
+@keyframes pop {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.hide {
+    display: none;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 500px) {
+
+    body {
+        padding: 1.25rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .subtitle {
+        margin-bottom: 1.5rem;
+    }
+
+    .game-area {
+        min-height: 320px;
+    }
+
+    .cooler {
+        transform: scale(0.9);
+    }
+
+    .cooler:active {
+        transform: scale(0.88);
+    }
+
+    .instruction {
+        font-size: 0.9rem;
+    }
+}

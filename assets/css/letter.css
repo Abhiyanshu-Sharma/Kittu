@@ -37,8 +37,6 @@ body{
 }
 
 .letter{
-
-    background-image:url("../assets/images/letter-background.jpg");
     background-repeat:no-repeat;
     background-position:center;
     background-size:100% 100%;
@@ -121,6 +119,26 @@ hr{
     margin-bottom:1.3rem;
 
     color:var(--text);
+
+}
+
+.line,
+footer,
+button{
+
+    opacity:0;
+
+    transform:translateY(15px);
+
+    transition:.8s ease;
+
+}
+
+.show{
+
+    opacity:1;
+
+    transform:translateY(0);
 
 }
 

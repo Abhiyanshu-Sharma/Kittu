@@ -25,6 +25,13 @@ body{
     justify-content: center;
     align-items: center;
     padding: 2rem;
+    transition:opacity .8s ease;
+}
+
+body.fade-out{
+
+    opacity:0;
+
 }
 
 .landing-page {
@@ -52,6 +59,17 @@ body{
     font-size: 1.6rem;
     font-weight: 500;
     margin-bottom: 1.5rem;
+}
+
+.fade{
+    opacity:0;
+    transform:translateY(25px);
+    transition:all .8s ease;
+}
+
+.fade.show{
+    opacity:1;
+    transform:translateY(0);
 }
 
 .hero p {

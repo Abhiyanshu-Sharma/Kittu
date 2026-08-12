@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cooler Mein Paani Bhar Do</title>
+
+    <link rel="stylesheet" href="../css/water-cooler.css">
+
+    <script src="../js/water-cooler.js" defer></script>
+</head>
+
+<body>
+
+    <main class="game">
+
+        <h1>Cooler Mein Paani Bhar Do</h1>
+
+        <p class="subtitle">
+            You have one very important task.
+        </p>
+
+        <div class="game-area">
+
+            <!-- Cooler -->
+            <div class="cooler" id="cooler">
+
+                <!-- Handle -->
+                <div class="cooler-handle"></div>
+
+                <!-- Top / Lid -->
+                <div class="cooler-lid">
+                    <div class="lid-line"></div>
+                </div>
+
+                <!-- Main Cooler -->
+                <div class="cooler-body">
+
+                    <!-- Water -->
+                    <div class="water" id="water">
+                        <div class="water-wave"></div>
+                    </div>
+
+                    <!-- Cooler front details -->
+                    <div class="cooler-label">
+                        COOLER
+                    </div>
+
+                    <div class="cooler-grill">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                </div>
+
+                <!-- Feet -->
+                <div class="cooler-feet">
+                    <div></div>
+                    <div></div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <p class="instruction" id="instruction">
+            Hold the cooler to fill it 💧
+        </p>
+
+        <!-- Progress -->
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress"></div>
+            </div>
+
+            <span id="progress-text">0%</span>
+        </div>
+
+        <p class="completion-message hide" id="completionMessage">
+            Cooler full! 💧
+        </p>
+
+    </main>
+</body>
+</html>
