@@ -1,0 +1,377 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #fff8f2;
+    --text: #3a3330;
+    --accent: #d98ca3;
+
+    --box: #c98f5a;
+    --box-dark: #a96f42;
+
+    --shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 2rem;
+
+    background: var(--bg);
+
+    font-family: "Poppins", sans-serif;
+    color: var(--text);
+
+    transition: opacity 0.8s ease;
+}
+
+body.fade-out {
+    opacity: 0;
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+.cat-page {
+    width: min(100%, 700px);
+
+    text-align: center;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.cat-header h1 {
+    font-family: "Great Vibes", cursive;
+
+    font-size: 4rem;
+    font-weight: 400;
+
+    color: var(--accent);
+
+    margin-bottom: 0.5rem;
+}
+
+.cat-header p {
+    color: #777;
+
+    font-size: 1rem;
+}
+
+
+/* =========================
+   SCENE
+========================= */
+
+.cat-scene {
+    position: relative;
+
+    width: 100%;
+    height: 430px;
+
+    margin-top: 2rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   CAT ANIMATIONS
+========================= */
+
+.cat-animation {
+    position: absolute;
+
+    left: 50%;
+    bottom: 50px;
+
+    width: 300px;
+    height: 300px;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.5s ease,
+        visibility 0.5s ease;
+}
+
+
+/* The actual Lottie animation */
+
+dotlottie-wc {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+}
+
+
+/* =========================
+   ACTIVE CAT
+========================= */
+
+.cat-animation.active {
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+/* =========================
+   CARDBOARD BOX
+========================= */
+
+.box {
+    position: absolute;
+
+    left: 50%;
+    bottom: 65px;
+
+    width: 230px;
+    height: 160px;
+
+    transform: translateX(-50%);
+
+    cursor: pointer;
+
+    z-index: 10;
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease;
+}
+
+
+/* Box body */
+
+.box-body {
+    position: absolute;
+
+    bottom: 0;
+
+    width: 100%;
+    height: 130px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: var(--box);
+
+    border-radius: 8px 8px 12px 12px;
+
+    box-shadow: var(--shadow);
+
+    overflow: hidden;
+}
+
+
+/* Box marking */
+
+.box-body span {
+    font-size: 2rem;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    font-weight: 600;
+}
+
+
+/* Box lid */
+
+.box-lid {
+    position: absolute;
+
+    top: 15px;
+    left: -10px;
+
+    width: 250px;
+    height: 30px;
+
+    background: var(--box-dark);
+
+    border-radius: 6px;
+
+    z-index: 2;
+}
+
+
+/* =========================
+   BOX DISAPPEARING
+========================= */
+
+.box.hide-box {
+    opacity: 0;
+
+    transform:
+        translateX(-50%)
+        scale(0.7);
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   INSTRUCTIONS
+========================= */
+
+#pet-message {
+    margin-top: 1rem;
+
+    color: #777;
+
+    font-size: 1rem;
+
+    transition: opacity 0.3s ease;
+}
+
+
+/* =========================
+   CONTINUE BUTTON
+========================= */
+
+#continue-btn {
+    margin-top: 2rem;
+
+    padding: 0.9rem 2.2rem;
+
+    border: none;
+
+    border-radius: 999px;
+
+    background: var(--accent);
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 1rem;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow: var(--shadow);
+
+    transition: 0.3s ease;
+}
+
+#continue-btn:hover {
+    background: #c87890;
+
+    transform: translateY(-3px);
+}
+
+#continue-btn:active {
+    transform: translateY(0);
+}
+
+
+/* =========================
+   HIDDEN
+========================= */
+
+.hidden {
+    display: none;
+}
+
+
+/* =========================
+   BOX SHAKE
+========================= */
+
+.box.shake {
+    animation: boxShake 0.5s ease;
+}
+
+@keyframes boxShake {
+
+    0% {
+        transform: translateX(-50%);
+    }
+
+    20% {
+        transform: translateX(calc(-50% - 7px)) rotate(-2deg);
+    }
+
+    40% {
+        transform: translateX(calc(-50% + 7px)) rotate(2deg);
+    }
+
+    60% {
+        transform: translateX(calc(-50% - 5px)) rotate(-1deg);
+    }
+
+    80% {
+        transform: translateX(calc(-50% + 5px)) rotate(1deg);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 1rem;
+    }
+
+    .cat-header h1 {
+        font-size: 3.2rem;
+    }
+
+    .cat-scene {
+        height: 380px;
+    }
+
+    .cat-animation {
+        width: 260px;
+        height: 260px;
+
+        bottom: 55px;
+    }
+
+    .box {
+        width: 200px;
+        height: 145px;
+
+        bottom: 60px;
+    }
+
+    .box-lid {
+        width: 220px;
+    }
+}

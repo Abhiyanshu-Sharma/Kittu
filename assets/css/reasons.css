@@ -1,0 +1,344 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #fff8f2;
+    --card: #ffffff;
+    --text: #3a3330;
+
+    --accent: #d98ca3;
+    --accent-dark: #c87890;
+
+    --envelope: #e8a6b8;
+    --envelope-dark: #d98ca3;
+
+    --shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 2rem;
+
+    background: var(--bg);
+
+    font-family: "Poppins", sans-serif;
+    color: var(--text);
+
+    transition: opacity 0.8s ease;
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+.reasons-page {
+    width: min(100%, 700px);
+
+    text-align: center;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.reasons-header h1 {
+    font-family: "Great Vibes", cursive;
+
+    font-size: 4.2rem;
+    font-weight: 400;
+
+    color: var(--accent);
+}
+
+.reasons-header p {
+    margin-top: 0.5rem;
+
+    color: #777;
+
+    font-size: 1rem;
+}
+
+
+/* =========================
+   ENVELOPE SCENE
+========================= */
+
+.letter-scene {
+    position: relative;
+
+    width: 100%;
+    height: 400px;
+
+    margin-top: 2rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* =========================
+   ENVELOPE
+========================= */
+
+.envelope {
+    position: relative;
+
+    width: 330px;
+    height: 220px;
+
+    cursor: pointer;
+
+    filter: drop-shadow(0 15px 20px rgba(0, 0, 0, 0.12));
+
+    transition: transform 0.3s ease;
+}
+
+.envelope:hover {
+    transform: translateY(-5px);
+}
+
+
+/* =========================
+   ENVELOPE BACK
+========================= */
+
+.envelope-back {
+    position: absolute;
+
+    inset: 0;
+
+    background: var(--envelope);
+
+    border-radius: 10px;
+
+    z-index: 1;
+}
+
+
+/* =========================
+   LETTER
+========================= */
+
+.letter {
+    position: absolute;
+
+    left: 15px;
+    right: 15px;
+
+    bottom: 15px;
+
+    height: 180px;
+
+    padding: 2rem 1.5rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: white;
+
+    border-radius: 6px;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+
+    z-index: 2;
+
+    transition:
+        transform 0.6s ease,
+        opacity 0.4s ease;
+}
+
+.letter p {
+    font-family: "Great Vibes", cursive;
+
+    font-size: 2rem;
+
+    line-height: 1.3;
+
+    color: var(--text);
+}
+
+
+/* =========================
+   ENVELOPE FRONT
+========================= */
+
+.envelope-front {
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 0;
+    height: 0;
+
+    border-left: 165px solid transparent;
+    border-right: 165px solid transparent;
+    border-bottom: 120px solid var(--envelope-dark);
+
+    z-index: 4;
+}
+
+
+/* =========================
+   ENVELOPE FLAP
+========================= */
+
+.envelope-flap {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 0;
+    height: 0;
+
+    border-left: 165px solid transparent;
+    border-right: 165px solid transparent;
+    border-top: 120px solid var(--accent);
+
+    transform-origin: top center;
+
+    z-index: 5;
+
+    transition: transform 0.6s ease;
+}
+
+
+/* =========================
+   OPEN STATE
+========================= */
+
+.envelope.open .envelope-flap {
+    transform: rotateX(180deg);
+
+    z-index: 1;
+}
+
+.envelope.open .letter {
+    transform: translateY(-100px);
+
+    z-index: 3;
+}
+
+
+/* =========================
+   TAP MESSAGE
+========================= */
+
+#tap-message {
+    margin-top: 0.5rem;
+
+    color: #777;
+
+    font-size: 0.95rem;
+}
+
+
+/* =========================
+   CONTINUE
+========================= */
+
+#continue-btn {
+    margin-top: 2rem;
+
+    padding: 0.9rem 2.2rem;
+
+    border: none;
+
+    border-radius: 999px;
+
+    background: var(--accent);
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow: var(--shadow);
+
+    transition: 0.3s ease;
+}
+
+#continue-btn:hover {
+    background: var(--accent-dark);
+
+    transform: translateY(-3px);
+}
+
+#continue-btn:active {
+    transform: translateY(0);
+}
+
+
+/* =========================
+   UTILITIES
+========================= */
+
+.hidden {
+    display: none;
+}
+
+body.fade-out {
+    opacity: 0;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 1rem;
+    }
+
+    .reasons-header h1 {
+        font-size: 3.2rem;
+    }
+
+    .letter-scene {
+        height: 350px;
+    }
+
+    .envelope {
+        width: 280px;
+        height: 185px;
+    }
+
+    .envelope-front {
+        border-left-width: 140px;
+        border-right-width: 140px;
+        border-bottom-width: 100px;
+    }
+
+    .envelope-flap {
+        border-left-width: 140px;
+        border-right-width: 140px;
+        border-top-width: 100px;
+    }
+
+    .letter {
+        height: 150px;
+    }
+
+    .letter p {
+        font-size: 1.7rem;
+    }
+}

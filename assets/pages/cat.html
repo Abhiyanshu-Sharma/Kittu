@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A Little Cat 🐈</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Great+Vibes&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="../css/cat.css">
+
+    <!-- Lottie Web Component -->
+    <script
+        type="module"
+        src="https://cdn.jsdelivr.net/npm/@lottiefiles/dotlottie-wc@latest/dist/dotlottie-wc.js">
+    </script>
+
+    <script src="../js/cat.js" defer></script>
+</head>
+
+<body>
+
+    <main class="cat-page">
+
+        <!-- Heading -->
+
+        <section class="cat-header">
+
+            <h1>A little surprise...</h1>
+
+            <p id="instruction">
+                Hmm... what's in here?
+            </p>
+
+        </section>
+
+
+        <!-- Main scene -->
+
+        <section class="cat-scene">
+
+            <!-- =========================
+                 CARDBOARD BOX
+            ========================== -->
+
+            <div class="box" id="box">
+
+                <div class="box-lid"></div>
+
+                <div class="box-body">
+                    <span>?</span>
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 SLEEPING CAT
+            ========================== -->
+
+            <div class="cat-animation sleeping-cat" id="sleeping-cat">
+
+                <dotlottie-wc
+                    src="https://lottie.host/a0207c1d-0c2d-450b-95aa-76e02542532c/Oa1ToagSfU.lottie" autoplay loop>
+                </dotlottie-wc>
+
+            </div>
+
+
+            <!-- =========================
+                 PLAYING CAT
+            ========================== -->
+
+            <div class="cat-animation playing-cat" id="playing-cat">
+
+                <dotlottie-wc
+                    src="https://lottie.host/42e86fad-57ef-4e9b-a1b1-7f04b654193d/hMIiMa4VGz.lottie" autoplay loop>
+                </dotlottie-wc>
+
+            </div>
+
+
+            <!-- =========================
+                 HEART CAT
+            ========================== -->
+
+            <div class="cat-animation heart-cat" id="heart-cat">
+
+                <dotlottie-wc
+                    src="https://lottie.host/53d4993c-f7a7-48a4-badc-9620b90516ff/uHSDMqzQnI.lottie"
+                    autoplay
+                    loop>
+                </dotlottie-wc>
+
+            </div>
+
+        </section>
+
+
+        <!-- Message -->
+
+        <p id="pet-message" class="hidden">
+            Tap the cat 🐾
+        </p>
+
+
+        <!-- Continue -->
+
+        <button id="continue-btn" class="hidden">
+            Continue ❤️
+        </button>
+
+    </main>
+
+</body>
+
+</html>
