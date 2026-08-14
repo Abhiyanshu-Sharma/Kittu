@@ -4,6 +4,7 @@ const progress = document.getElementById("progress");
 const progressText = document.getElementById("progress-text");
 const instruction = document.getElementById("instruction");
 const completionMessage = document.getElementById("completionMessage");
+const continueBtn = document.getElementById("continue-btn");
 
 let waterLevel = 0;
 let filling = false;
@@ -75,7 +76,6 @@ const updateWater = () => {
 
 // Game Completed
 const completeGame = () => {
-
     filling = false;
 
     cooler.classList.remove("filling");
@@ -85,6 +85,8 @@ const completeGame = () => {
     completionMessage.classList.remove("hide");
 
     completionMessage.textContent = "Cooler full! 💧 You did it!";
+
+    continueBtn.classList.remove("hide");
 };
 
 
@@ -101,4 +103,14 @@ cooler.addEventListener("pointercancel", stopFilling);
 // Prevent browser context menu
 cooler.addEventListener("contextmenu", (event) => {
     event.preventDefault();
+});
+
+continueBtn.addEventListener("click", () => {
+
+    document.body.classList.add("fade-out");
+
+    setTimeout(() => {
+        window.location.href = "cat.html";
+    }, 800);
+
 });

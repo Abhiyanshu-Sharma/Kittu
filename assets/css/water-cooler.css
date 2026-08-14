@@ -16,7 +16,11 @@
     --water-dark: #42afd0;
 
     --progress-bg: #e9e2dc;
+
     --accent: #ff8fab;
+    --button-hover: #f27698;
+
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
 }
 
 body {
@@ -33,6 +37,12 @@ body {
     color: var(--text);
 
     font-family: "Poppins", sans-serif;
+
+    transition: opacity 0.8s ease;
+}
+
+body.fade-out {
+    opacity: 0;
 }
 
 .game {
@@ -452,4 +462,36 @@ h1 {
     .instruction {
         font-size: 0.9rem;
     }
+}
+
+#continue-btn {
+    margin-top: 2rem;
+
+    padding: 0.9rem 2.2rem;
+
+    border: none;
+    border-radius: 999px;
+
+    background: var(--accent);
+    color: white;
+
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow: var(--shadow);
+
+    transition: 0.3s ease;
+}
+
+#continue-btn:hover {
+    background: var(--button-hover);
+
+    transform: translateY(-3px);
+}
+
+#continue-btn:active {
+    transform: translateY(0);
 }

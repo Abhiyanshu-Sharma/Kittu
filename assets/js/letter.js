@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         setTimeout(() => {
             element.classList.add("show");
-        }, index * 2000);
+        }, index * 1000);
 
     });
 
